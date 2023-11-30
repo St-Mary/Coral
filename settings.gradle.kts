@@ -1,2 +1,2 @@
-rootProject.name = "saintmary-commonlib"
+rootProject.name = "stmarygate-commonlib"
 
