@@ -10,13 +10,13 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Run chmod to make gradlew executable
-        run: chmod +x /home/runner/work/StMary-CommonLib/StMary-CommonLib/gradlew
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v3
         with:
           java-version: '19.0.2'
           distribution: 'oracle'
+      - name: Run chmod to make gradlew executable
+        run: chmod +x /home/runner/work/StMary-CommonLib/StMary-CommonLib/gradlew
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
       - name: Publish package
