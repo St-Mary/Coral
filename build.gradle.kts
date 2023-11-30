@@ -21,8 +21,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/St-Mary/StMary-CommonLib")
             credentials {
-                username = project.findProperty("GITHUB_ACTOR").toString()
-                password = project.findProperty("GITHUB_TOKEN").toString()
+                username = System.getenv("GITHUB_ACTOR").toString()
+                password = System.getenv("GITHUB_TOKEN").toString()
             }
         }
     }
