@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.saintmary"
+group = "com.stmarygate.common"
 version = "0.0.1"
 
 repositories {
