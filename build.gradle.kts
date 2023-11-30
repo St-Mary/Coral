@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    `maven-publish`
 }
 
 group = "com.github.saintmary"
@@ -7,6 +8,24 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/St-Mary/StMary-CommonLib")
+            credentials {
+                username = (project.findProperty("GITHUB_ACTOR") ?: System.getenv("USERNAME")).toString()
+                password = (project.findProperty("GITHUB_TOKEN") ?: System.getenv("TOKEN")).toString()
+            }
+        }
+    }
 }
 
 dependencies {
