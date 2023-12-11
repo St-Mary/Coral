@@ -16,7 +16,7 @@ jobs:
           java-version: '19.0.2'
           distribution: 'oracle'
       - name: Run chmod to make gradlew executable
-        run: chmod +x /home/runner/work/St-Mary/StMary-CommonLib/gradlew
+        run: chmod +x /home/runner/work/StMary-CommonLib/gradlew
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
       - name: Publish package
