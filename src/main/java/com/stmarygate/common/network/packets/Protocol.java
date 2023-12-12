@@ -1,5 +1,8 @@
 package com.stmarygate.common.network.packets;
 
+import com.stmarygate.common.network.packets.client.PacketVersion;
+import com.stmarygate.common.network.packets.server.PacketVersionResult;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +13,8 @@ public class Protocol {
     private static final Protocol INSTANCE = new Protocol();
 
     public Protocol() {
-
+        register(124940, PacketVersion.class);
+        register(187991, PacketVersionResult.class);
     }
 
     private void register(int id, Class<? extends Packet> packet) {
