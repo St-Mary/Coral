@@ -46,6 +46,7 @@ public class PacketVersion extends Packet {
         System.out.println("Decoding packet version4");
         System.out.println("Print current packet buffer : ");
         System.out.println(packet.printBuffer(true));
+        System.out.println("Print version: " + this.major + "." + this.minor + "." + this.patch);
         this.buildVersion = packet.readString();
         System.out.println("Decoding packet version5");
         System.out.println("Print current packet buffer : ");

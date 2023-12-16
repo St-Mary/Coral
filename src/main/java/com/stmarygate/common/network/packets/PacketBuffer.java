@@ -58,21 +58,16 @@ public class PacketBuffer {
     }
 
     public short readUnsignedByte() {
-        short b = data.readUnsignedByte();
-        System.out.println("Reading unsigned byte: " + b);
-        return b;
+        return data.readUnsignedByte();
     }
 
     public PacketBuffer writeShort(int s) {
         data.writeShort(s);
-        System.out.println("Writing short: " + s + " to buffer as byte" + data.getByte(data.writerIndex() - 1));
         return this;
     }
 
     public short readShort() {
-        short s = data.readShort();
-        System.out.println("Reading short: " + s);
-        return s;
+        return data.readShort();
     }
 
     public int readUnsignedShort() {
@@ -137,25 +132,12 @@ public class PacketBuffer {
 
     public PacketBuffer writeString(String s) {
         data.writeByte(s.length());
-        System.out.println("Writing string of length " + s.length());
-        // get last byte of data
-        System.out.println("Writing string of length byte " + data.getByte(data.writerIndex() - 1));
         data.writeBytes(s.getBytes());
         return this;
     }
 
     public String readString() {
-        // Print previous byte
-        int number = data.readByte();
-        int hex = data.getByte(data.readerIndex() - 1) & 0xFF;
-        int prevHex = data.getByte(data.readerIndex() - 2) & 0xFF;
-
-        // Print previous byte at data.readerInxdex() in hex
-        System.out.println("Reading string of length byte 0x" + Integer.toHexString(hex).toUpperCase());
-        System.out.println("Reading string of length byte 0x" + Integer.toHexString(prevHex).toUpperCase());
-        System.out.println("Reading string of length bytes " + number);
-        byte[] str = new byte[number];
-        System.out.println("Reading string of length " + str.length);
+        byte[] str = new byte[data.readByte()];
         data.readBytes(str);
         return new String(str);
     }
