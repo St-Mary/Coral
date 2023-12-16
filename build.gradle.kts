@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.stmarygate.common"
-version = "1.0.6.stable"
+version = "1.0.7.stable"
 
 repositories {
     mavenCentral()
