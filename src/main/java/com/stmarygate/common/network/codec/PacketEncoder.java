@@ -13,8 +13,12 @@ public class PacketEncoder extends MessageToByteEncoder<Packet> {
     }
 
     @Override
-    protected void encode(ChannelHandlerContext ctx, Packet msg, ByteBuf out) throws Exception {
-        msg.encode(new PacketBuffer(out, Protocol.getInstance().getPacketId(msg), msg.getPacketType()));
-        ctx.channel().flush();
+    protected void encode(ChannelHandlerContext ctx, Packet msg, ByteBuf out) {
+        try {
+            msg.encode(new PacketBuffer(out, Protocol.getInstance().getPacketId(msg), Packet.PacketAction.WRITE));
+            ctx.channel().flush();
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 }

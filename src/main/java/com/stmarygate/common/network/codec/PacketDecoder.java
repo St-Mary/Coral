@@ -12,11 +12,9 @@ import java.util.List;
 
 public class PacketDecoder extends MessageToMessageDecoder<ByteBuf> {
     private static final int HEADER_SIZE = 4;
-    private final Packet.PacketType packetType;
     private ByteBuf buffer;
 
-    public PacketDecoder(Packet.PacketType packetType) {
-        this.packetType = packetType;
+    public PacketDecoder() {
     }
 
     @Override
@@ -39,11 +37,7 @@ public class PacketDecoder extends MessageToMessageDecoder<ByteBuf> {
             ByteBuf slice = this.buffer.readSlice(size);
 
             Packet packet = Protocol.getInstance().getPacket(id);
-            if(packet.getPacketType() != this.packetType) {
-                throw new IllegalStateException("Received packet with wrong type");
-            }
-
-            packet.decode(new PacketBuffer(slice, id, this.packetType));
+            packet.decode(new PacketBuffer(slice, id, Packet.PacketAction.READ));
             out.add(packet);
         }
     }

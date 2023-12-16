@@ -12,7 +12,6 @@ public class PacketVersionResult extends Packet {
     private String buildVersion;
 
     public PacketVersionResult(boolean accepted, int major, int minor, int patch, String buildVersion) {
-        super(PacketType.SERVER_MSG);
         this.accepted = accepted;
         this.major = major;
         this.minor = minor;

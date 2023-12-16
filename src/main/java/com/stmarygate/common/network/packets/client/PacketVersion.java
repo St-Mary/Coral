@@ -21,11 +21,14 @@ public class PacketVersion extends Packet {
     private String buildVersion;
 
     public PacketVersion(int major, int minor, int patch, String buildVersion) {
-        super(PacketType.CLIENT_MSG);
         this.major = major;
         this.minor = minor;
         this.patch = patch;
         this.buildVersion = buildVersion;
+    }
+
+    public PacketVersion() {
+        this(0, 0, 1, "SNAPSHOT");
     }
 
     @Override

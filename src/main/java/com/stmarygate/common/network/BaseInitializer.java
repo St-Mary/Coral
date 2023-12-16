@@ -12,13 +12,12 @@ import lombok.AllArgsConstructor;
 
 public class BaseInitializer extends ChannelInitializer<SocketChannel> {
     private final BaseChannel channel;
-    private final Packet.PacketType packetType;
 
     @Override
     protected void initChannel(SocketChannel ch) {
         ChannelPipeline pl = ch.pipeline();
 
-        pl.addLast("decoder", new PacketDecoder(this.packetType));
+        pl.addLast("decoder", new PacketDecoder());
         pl.addLast("encoder", new PacketEncoder());
         pl.addLast("handler", this.channel);
     }

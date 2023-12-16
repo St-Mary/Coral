@@ -10,15 +10,15 @@ public class PacketBuffer {
     private int packetId;
     private int size;
 
-    public PacketBuffer(Packet.PacketType packetType,  int id) {
+    public PacketBuffer(Packet.PacketAction packetType,  int id) {
         this(Unpooled.buffer(), id, packetType);
     }
 
-    public PacketBuffer(ByteBuf buffer, int id, Packet.PacketType packetType) {
+    public PacketBuffer(ByteBuf buffer, int id, Packet.PacketAction packetType) {
         this.data = buffer;
         this.packetId = id;
 
-        if(packetType == Packet.PacketType.CLIENT_MSG) {
+        if(packetType == Packet.PacketAction.READ) {
             this.packetId = data.readShort();
             this.size = data.readShort();
         } else {

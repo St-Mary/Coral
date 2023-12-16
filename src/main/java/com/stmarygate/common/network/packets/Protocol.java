@@ -30,7 +30,6 @@ public class Protocol {
         Optional<Integer> id = PACKETS_MAP.entrySet().stream().filter(entry -> entry.getValue().isInstance(packet)).map(Map.Entry::getKey).findFirst();
         if (id.isPresent())
             return id.get();
-
         throw new RuntimeException("Packet " + packet + " is not registered.");
     }
 

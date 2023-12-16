@@ -14,7 +14,7 @@ public class PacketHandler {
 
     public void handlePacket(Packet packet) {
         try {
-            Method method = this.getClass().getMethod("handle" + packet.getPacketType().name(), packet.getClass());
+            Method method = this.getClass().getMethod("handle" + packet.getClass().getSimpleName(), packet.getClass());
             method.invoke(this, packet);
         } catch (InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             throw new RuntimeException("Packet " + packet.getClass().getSimpleName() + " is not handled.");
