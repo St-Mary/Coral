@@ -2,48 +2,58 @@ package com.stmarygate.common.network.packets;
 
 import com.stmarygate.common.network.packets.client.PacketVersion;
 import com.stmarygate.common.network.packets.server.PacketVersionResult;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
 public class Protocol {
-    private static final HashMap<Integer, Class<? extends Packet>> PACKETS_MAP = new HashMap<>();
-    private static final Protocol INSTANCE = new Protocol();
+  private static final HashMap<Integer, Class<? extends Packet>> PACKETS_MAP = new HashMap<>();
+  private static final Protocol INSTANCE = new Protocol();
 
-    public Protocol() {
-        register(123, PacketVersion.class);
-        register(124, PacketVersionResult.class);
-    }
+  public Protocol() {
+    register(1, PacketVersion.class);
+    register(2, PacketVersionResult.class);
+  }
 
-    private void register(int id, Class<? extends Packet> packet) {
-        try {
-            packet.getDeclaredConstructor().newInstance();
-            PACKETS_MAP.put(id, packet);
-        } catch (InvocationTargetException | InstantiationException | IllegalAccessException | NoSuchMethodException e) {
-            throw new RuntimeException("Class " + packet.getSimpleName() + " does not contain a default Constructor!");
-        }
-    }
+  public static Protocol getInstance() {
+    return INSTANCE;
+  }
 
-    public int getPacketId(Packet packet) {
-        Optional<Integer> id = PACKETS_MAP.entrySet().stream().filter(entry -> entry.getValue().isInstance(packet)).map(Map.Entry::getKey).findFirst();
-        if (id.isPresent())
-            return id.get();
-        throw new RuntimeException("Packet " + packet + " is not registered.");
+  private void register(int id, Class<? extends Packet> packet) {
+    try {
+      packet.getDeclaredConstructor().newInstance();
+      PACKETS_MAP.put(id, packet);
+    } catch (InvocationTargetException
+        | InstantiationException
+        | IllegalAccessException
+        | NoSuchMethodException e) {
+      throw new RuntimeException(
+          "Class " + packet.getSimpleName() + " does not contain a default Constructor!");
     }
+  }
 
-    public Packet getPacket(int id) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        if (!PACKETS_MAP.containsKey(id))
-            throw new RuntimeException("Packet with id " + id + " is not registered.");
-        return PACKETS_MAP.get(id).getDeclaredConstructor().newInstance();
-    }
+  public int getPacketId(Packet packet) {
+    Optional<Integer> id =
+        PACKETS_MAP.entrySet().stream()
+            .filter(entry -> entry.getValue().isInstance(packet))
+            .map(Map.Entry::getKey)
+            .findFirst();
+    if (id.isPresent()) return id.get();
+    throw new RuntimeException("Packet " + packet + " is not registered.");
+  }
 
-    public boolean hasPacket(int id) {
-        return PACKETS_MAP.containsKey(id);
-    }
+  public Packet getPacket(int id)
+      throws InstantiationException,
+          IllegalAccessException,
+          NoSuchMethodException,
+          InvocationTargetException {
+    if (!PACKETS_MAP.containsKey(id))
+      throw new RuntimeException("Packet with id " + id + " is not registered.");
+    return PACKETS_MAP.get(id).getDeclaredConstructor().newInstance();
+  }
 
-    public static Protocol getInstance() {
-        return INSTANCE;
-    }
+  public boolean hasPacket(int id) {
+    return PACKETS_MAP.containsKey(id);
+  }
 }
