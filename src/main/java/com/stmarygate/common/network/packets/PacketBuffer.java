@@ -28,7 +28,7 @@ public class PacketBuffer {
     }
 
     public void finish() {
-        data.setShort(2, data.writerIndex());
+        data.setShort(2, data.writerIndex() - Packet.HEADER_SIZE);
     }
 
     public ByteBuf getData() {
@@ -58,20 +58,27 @@ public class PacketBuffer {
     }
 
     public short readUnsignedByte() {
-        return data.readUnsignedByte();
+        short b = data.readUnsignedByte();
+        System.out.println("Reading unsigned byte: " + b);
+        return b;
     }
 
     public PacketBuffer writeShort(int s) {
         data.writeShort(s);
+        System.out.println("Writing short: " + s + " to buffer as byte" + data.getByte(data.writerIndex() - 1));
         return this;
     }
 
     public short readShort() {
-        return data.readShort();
+        short s = data.readShort();
+        System.out.println("Reading short: " + s);
+        return s;
     }
 
     public int readUnsignedShort() {
-        return data.readUnsignedShort();
+        int s = data.readUnsignedShort();
+        System.out.println("Reading unsigned short: " + s);
+        return s;
     }
 
     public PacketBuffer writeInt(int i) {
@@ -116,14 +123,39 @@ public class PacketBuffer {
         return data.readBoolean();
     }
 
+    public String printBuffer(boolean hex) {
+        byte[] buf = new byte[data.writerIndex()];
+        StringBuilder sb = new StringBuilder();
+        data.getBytes(0, buf);
+
+        sb.append("[");
+        for (int i=0; i<buf.length; i++)
+            sb.append(hex ? "0x" + Integer.toHexString(buf[i] & 0xFF).toUpperCase() : String.valueOf(buf[i])).append(i == buf.length - 1 ? "" : ", ");
+        sb.append("]");
+        return sb.toString();
+    }
+
     public PacketBuffer writeString(String s) {
         data.writeByte(s.length());
+        System.out.println("Writing string of length " + s.length());
+        // get last byte of data
+        System.out.println("Writing string of length byte " + data.getByte(data.writerIndex() - 1));
         data.writeBytes(s.getBytes());
         return this;
     }
 
     public String readString() {
-        byte[] str = new byte[data.readUnsignedByte()];
+        // Print previous byte
+        int number = data.readByte();
+        int hex = data.getByte(data.readerIndex() - 1) & 0xFF;
+        int prevHex = data.getByte(data.readerIndex() - 2) & 0xFF;
+
+        // Print previous byte at data.readerInxdex() in hex
+        System.out.println("Reading string of length byte 0x" + Integer.toHexString(hex).toUpperCase());
+        System.out.println("Reading string of length byte 0x" + Integer.toHexString(prevHex).toUpperCase());
+        System.out.println("Reading string of length bytes " + number);
+        byte[] str = new byte[number];
+        System.out.println("Reading string of length " + str.length);
         data.readBytes(str);
         return new String(str);
     }

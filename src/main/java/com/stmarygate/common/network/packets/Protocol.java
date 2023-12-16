@@ -13,8 +13,8 @@ public class Protocol {
     private static final Protocol INSTANCE = new Protocol();
 
     public Protocol() {
-        register(124940, PacketVersion.class);
-        register(187991, PacketVersionResult.class);
+        register(123, PacketVersion.class);
+        register(124, PacketVersionResult.class);
     }
 
     private void register(int id, Class<? extends Packet> packet) {

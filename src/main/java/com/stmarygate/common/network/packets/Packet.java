@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 public class Packet {
+    public static final int HEADER_SIZE = 4;
 
     public void decode(PacketBuffer packet) {}
     public void encode(PacketBuffer packet) throws RuntimeException {

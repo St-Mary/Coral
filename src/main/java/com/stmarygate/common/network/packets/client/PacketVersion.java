@@ -33,18 +33,46 @@ public class PacketVersion extends Packet {
 
     @Override
     public void decode(PacketBuffer packet) {
-        this.major = packet.readUnsignedByte();
-        this.minor = packet.readShort();
-        this.patch = packet.readUnsignedByte();
+        System.out.println("Decoding packet version");
+        this.major = packet.readByte();
+        System.out.println("Decoding packet version2");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
+        this.minor = packet.readByte();
+        System.out.println("Decoding packet version3");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
+        this.patch = packet.readByte();
+        System.out.println("Decoding packet version4");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
         this.buildVersion = packet.readString();
+        System.out.println("Decoding packet version5");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
     }
 
     @Override
     public void encode(PacketBuffer packet) {
+        System.out.println("Encoding packet version");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
         packet.writeByte(major);
-        packet.writeShort(minor);
+        System.out.println("Encoding packet version2");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
+        packet.writeByte(minor);
+        System.out.println("Encoding packet version3");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
         packet.writeByte(patch);
+        System.out.println("Encoding packet version4");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
         packet.writeString(buildVersion);
+        System.out.println("Encoding packet version5");
+        System.out.println("Print current packet buffer : ");
+        System.out.println(packet.printBuffer(true));
 
         packet.finish();
     }

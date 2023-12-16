@@ -11,7 +11,6 @@ import io.netty.handler.codec.MessageToMessageDecoder;
 import java.util.List;
 
 public class PacketDecoder extends MessageToMessageDecoder<ByteBuf> {
-    private static final int HEADER_SIZE = 4;
     private ByteBuf buffer;
 
     public PacketDecoder() {
@@ -25,7 +24,7 @@ public class PacketDecoder extends MessageToMessageDecoder<ByteBuf> {
             this.buffer = Unpooled.copiedBuffer(this.buffer, msg).retain();
         }
 
-        while(this.buffer.readableBytes() > HEADER_SIZE) {
+        while(this.buffer.readableBytes() > Packet.HEADER_SIZE) {
             int id = this.buffer.readShort();
             int size = this.buffer.readShort();
 
