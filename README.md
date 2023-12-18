@@ -50,8 +50,8 @@
 </details>
 
 
-<!-- ABOUT LUNA -->
-## About Luna
+<!-- ABOUT CORAL -->
+## About Coral
 
 Nothing to see here
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
