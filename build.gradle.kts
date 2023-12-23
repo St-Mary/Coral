@@ -19,7 +19,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/St-Mary/CommonLib")
+            url = uri("https://maven.pkg.github.com/St-Mary/Coral")
             credentials {
                 username = (System.getenv("GITHUB_ACTOR") ?: "").toString()
                 password = (System.getenv("GITHUB_TOKEN") ?: "").toString()
