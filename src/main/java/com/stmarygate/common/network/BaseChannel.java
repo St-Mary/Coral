@@ -1,6 +1,7 @@
 package com.stmarygate.common.network;
 
 import com.stmarygate.common.network.packets.Packet;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
+@ChannelHandler.Sharable
 public class BaseChannel extends SimpleChannelInboundHandler<Packet> {
   /** The packet handler responsible for processing and handling business logic. */
   private final PacketHandler handler;
