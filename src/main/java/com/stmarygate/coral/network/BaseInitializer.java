@@ -1,7 +1,7 @@
-package com.stmarygate.common.network;
+package com.stmarygate.coral.network;
 
-import com.stmarygate.common.network.codec.PacketDecoder;
-import com.stmarygate.common.network.codec.PacketEncoder;
+import com.stmarygate.coral.network.codec.PacketDecoder;
+import com.stmarygate.coral.network.codec.PacketEncoder;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;

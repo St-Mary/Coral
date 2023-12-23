@@ -1,8 +1,9 @@
-package com.stmarygate.common.network;
+package com.stmarygate.coral.network;
 
-import com.stmarygate.common.network.packets.Packet;
+import com.stmarygate.coral.network.packets.Packet;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

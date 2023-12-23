@@ -1,8 +1,8 @@
-package com.stmarygate.common.network.codec;
+package com.stmarygate.coral.network.codec;
 
-import com.stmarygate.common.network.packets.Packet;
-import com.stmarygate.common.network.packets.PacketBuffer;
-import com.stmarygate.common.network.packets.Protocol;
+import com.stmarygate.coral.network.packets.Packet;
+import com.stmarygate.coral.network.packets.PacketBuffer;
+import com.stmarygate.coral.network.packets.Protocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;

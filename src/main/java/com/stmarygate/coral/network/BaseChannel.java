@@ -1,6 +1,6 @@
-package com.stmarygate.common.network;
+package com.stmarygate.coral.network;
 
-import com.stmarygate.common.network.packets.Packet;
+import com.stmarygate.coral.network.packets.Packet;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

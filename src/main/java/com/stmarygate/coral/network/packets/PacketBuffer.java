@@ -1,4 +1,4 @@
-package com.stmarygate.common.network.packets;
+package com.stmarygate.coral.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

@@ -1,7 +1,8 @@
-package com.stmarygate.common.network.packets;
+package com.stmarygate.coral.network.packets;
 
-import com.stmarygate.common.network.packets.client.PacketVersion;
-import com.stmarygate.common.network.packets.server.PacketVersionResult;
+import com.stmarygate.coral.network.packets.client.PacketVersion;
+import com.stmarygate.coral.network.packets.server.PacketVersionResult;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;

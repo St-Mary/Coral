@@ -1,6 +1,6 @@
-package com.stmarygate.common.network.packets;
+package com.stmarygate.coral.network.packets;
 
-import com.stmarygate.common.network.PacketHandler;
+import com.stmarygate.coral.network.PacketHandler;
 
 /**
  * Represents a generic packet in the network communication.
