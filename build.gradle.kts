@@ -3,8 +3,8 @@ plugins {
     `maven-publish`
 }
 
-group = "com.stmarygate.coral"
-version = "1.0.9"
+group = "com.stmarygate"
+version = "1.0.10"
 
 repositories {
     mavenCentral()
