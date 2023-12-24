@@ -1,5 +1,6 @@
 package com.stmarygate.coral.network.packets;
 
+import com.stmarygate.coral.network.packets.client.PacketLogin;
 import com.stmarygate.coral.network.packets.client.PacketVersion;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 
@@ -23,6 +24,7 @@ public class Protocol {
   private Protocol() {
     register(1, PacketVersion.class);
     register(2, PacketVersionResult.class);
+    register(3, PacketLogin.class);
   }
 
   /**
