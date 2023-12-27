@@ -3,6 +3,8 @@ package com.stmarygate.coral.network;
 import com.stmarygate.coral.network.packets.Packet;
 import io.netty.channel.Channel;
 
+import java.util.Arrays;
+
 /**
  * Represents a session associated with a client's communication channel. It provides methods to
  * send packets to the client and close the communication {@link Channel} associated with the client.
@@ -26,8 +28,12 @@ public class ClientSession {
    *
    * @param packet The packet to be sent to the client.
    */
-  public void write(Packet packet) {
-    this.channel.writeAndFlush(packet);
+  public void write(Packet packet) throws Exception {
+    try {
+      this.channel.writeAndFlush(packet);
+    } catch (Exception e) {
+      throw new Exception("Error writing packet " + packet.getClass().getSimpleName() + " to client " + this.channel.remoteAddress().toString() + "\nError:\n" + e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
+    }
   }
 
   /**

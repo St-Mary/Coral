@@ -3,6 +3,7 @@ package com.stmarygate.coral.network;
 import com.stmarygate.coral.network.packets.Packet;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -18,12 +19,12 @@ public class PacketHandler {
    * @param packet The packet to be handled.
    * @throws RuntimeException If the packet is not handled or an error occurs during handling.
    */
-  public void handlePacket(Packet packet) {
+  public void handlePacket(Packet packet) throws Exception {
     try {
       Method method = findHandlerMethod(packet);
       method.invoke(this, packet);
     } catch (InvocationTargetException | IllegalAccessException | NoSuchMethodException e) {
-      throw new RuntimeException("Error handling packet: " + packet.getClass().getSimpleName(), e);
+      throw new Exception("Error handling incoming packet " + packet.getClass().getSimpleName() + "\nError:\n" + e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
     }
   }
 

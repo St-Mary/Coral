@@ -57,37 +57,37 @@ public class PacketDecoder extends MessageToMessageDecoder<ByteBuf> {
    */
   @Override
   protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) throws Exception {
-    // Duplicate and retain the incoming buffer for manipulation
-    if (this.buffer == null || this.buffer.readableBytes() == 0) {
-      this.buffer = msg.duplicate().retain();
-    } else {
-      this.buffer = Unpooled.copiedBuffer(this.buffer, msg).retain();
-    }
-
-    // Continue decoding while there is enough data in the buffer
-    while (this.buffer.readableBytes() > Packet.HEADER_SIZE) {
-      int id = this.buffer.readShort();
-      int size = this.buffer.readShort();
-
-      // Check if there is enough data to read the entire packet
-      if (size > this.buffer.readableBytes()) {
-        // Not enough data to read the packet, wait for more data
-        return;
+      // Duplicate and retain the incoming buffer for manipulation
+      if (this.buffer == null || this.buffer.readableBytes() == 0) {
+        this.buffer = msg.duplicate().retain();
+      } else {
+        this.buffer = Unpooled.copiedBuffer(this.buffer, msg).retain();
       }
 
-      // Reset the reader index to the beginning of the packet
-      this.buffer.resetReaderIndex();
+      // Continue decoding while there is enough data in the buffer
+      while (this.buffer.readableBytes() > Packet.HEADER_SIZE) {
+        int id = this.buffer.readShort();
+        int size = this.buffer.readShort();
 
-      // Read a slice of the buffer containing the entire packet. The size add the header size because size dosn't include the header size
-      ByteBuf slice = this.buffer.readSlice(size + Packet.HEADER_SIZE);
+        // Check if there is enough data to read the entire packet
+        if (size > this.buffer.readableBytes()) {
+          // Not enough data to read the packet, wait for more data
+          return;
+        }
 
-      // Create a new packet instance using the Protocol and PacketBuffer
-      Packet packet = Protocol.getInstance().getPacket(id);
-      packet.decode(new PacketBuffer(slice, id, Packet.PacketAction.READ));
+        // Reset the reader index to the beginning of the packet
+        this.buffer.resetReaderIndex();
 
-      // Add the decoded packet to the output list
-      out.add(packet);
-    }
+        // Read a slice of the buffer containing the entire packet. The size add the header size because size dosn't include the header size
+        ByteBuf slice = this.buffer.readSlice(size + Packet.HEADER_SIZE);
+
+        // Create a new packet instance using the Protocol and PacketBuffer
+        Packet packet = Protocol.getInstance().getPacket(id);
+        packet.decode(new PacketBuffer(slice, id, Packet.PacketAction.READ));
+
+        // Add the decoded packet to the output list
+        out.add(packet);
+      }
   }
 }
 

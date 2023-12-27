@@ -16,7 +16,7 @@ public class Packet {
    *
    * @param packet The {@link PacketBuffer} containing the packet data.
    */
-  public void decode(PacketBuffer packet) {
+  public void decode(PacketBuffer packet) throws Exception {
     // Implementation specific to each packet type.
   }
 
@@ -26,7 +26,7 @@ public class Packet {
    * @param packet The {@link PacketBuffer} to which the packet data will be written.
    * @throws RuntimeException If an error occurs during encoding.
    */
-  public void encode(PacketBuffer packet) throws RuntimeException {
+  public void encode(PacketBuffer packet) throws Exception {
     packet.finish();
   }
 
@@ -35,7 +35,7 @@ public class Packet {
    *
    * @param handler The {@link PacketHandler} responsible for handling the packet.
    */
-  public void handle(PacketHandler handler) {
+  public void handle(PacketHandler handler) throws Exception {
     // Implementation specific to each packet type.
   }
 

@@ -68,7 +68,7 @@ public class PacketVersionResult extends Packet {
    * @param packet The {@link PacketBuffer} containing the packet data.
    */
   @Override
-  public void decode(PacketBuffer packet) {
+  public void decode(PacketBuffer packet) throws Exception {
     this.accepted = packet.readUnsignedByte() == 1;
     this.major = packet.readUnsignedByte();
     this.minor = packet.readUnsignedShort();
@@ -82,7 +82,7 @@ public class PacketVersionResult extends Packet {
    * @param packet The {@link PacketBuffer} to which the packet data will be written.
    */
   @Override
-  public void encode(PacketBuffer packet) {
+  public void encode(PacketBuffer packet) throws Exception {
     packet.writeByte(accepted ? 1 : 0);
     packet.writeByte(major);
     packet.writeShort(minor);
@@ -97,7 +97,7 @@ public class PacketVersionResult extends Packet {
    * @param handler The {@link PacketHandler} responsible for handling the packet.
    */
   @Override
-  public void handle(PacketHandler handler) {
+  public void handle(PacketHandler handler) throws Exception {
     handler.handlePacket(this);
   }
 

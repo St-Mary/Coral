@@ -48,7 +48,7 @@ public class BaseChannel extends SimpleChannelInboundHandler<Packet> {
    * @param msg The incoming packet to be handled.
    */
   @Override
-  protected void channelRead0(ChannelHandlerContext ctx, Packet msg) {
+  protected void channelRead0(ChannelHandlerContext ctx, Packet msg) throws Exception {
     this.handler.handlePacket(msg);
   }
 
