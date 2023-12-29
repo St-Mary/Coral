@@ -1,11 +1,16 @@
-package com.stmarygate.coral.network;
+package com.stmarygate.coral.network.packets;
 
-import com.stmarygate.coral.network.packets.Packet;
+import com.stmarygate.coral.network.BaseChannel;
+import com.stmarygate.coral.network.ClientSession;
+import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
+import com.stmarygate.coral.network.packets.client.PacketVersion;
+import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 @Getter
 @RequiredArgsConstructor
@@ -18,7 +23,7 @@ public class PacketHandler {
    * @param packet The packet to be handled.
    * @throws RuntimeException If the packet is not handled or an error occurs during handling.
    */
-  public void handlePacket(Packet packet) throws Exception {
+  public void handlePacket(@NotNull Packet packet) throws Exception {
     try {
       Method method = findHandlerMethod(packet);
       method.invoke(this, packet);
@@ -42,6 +47,15 @@ public class PacketHandler {
     return this.channel.getSession();
   }
 
+  public void handlePacketVersion(@NotNull PacketVersion packet) {}
+  ;
+
+  public void handlePacketVersionResult(@NotNull PacketVersionResult packet) {}
+  ;
+
+  public void handlePacketLoginUsingCredentials(@NotNull PacketLoginUsingCredentials packet) {}
+  ;
+
   /**
    * Finds the handler method for the given packet class.
    *
@@ -49,7 +63,7 @@ public class PacketHandler {
    * @return The handler method.
    * @throws NoSuchMethodException If no handler method is found.
    */
-  private Method findHandlerMethod(Packet packet) throws NoSuchMethodException {
+  private Method findHandlerMethod(@NotNull Packet packet) throws NoSuchMethodException {
     Class<?> packetClass = packet.getClass();
     String handlerMethodName = "handle" + packetClass.getSimpleName();
     return this.getClass().getMethod(handlerMethodName, packetClass);

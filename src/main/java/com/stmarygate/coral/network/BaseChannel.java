@@ -1,12 +1,14 @@
 package com.stmarygate.coral.network;
 
 import com.stmarygate.coral.network.packets.Packet;
+import com.stmarygate.coral.network.packets.PacketHandler;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import java.lang.reflect.InvocationTargetException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a channel handler for handling incoming packets of type {@link Packet}. It uses a
@@ -28,7 +30,7 @@ public class BaseChannel extends SimpleChannelInboundHandler<Packet> {
    * @param clazz The class of the packet handler to be used.
    * @throws RuntimeException If the packet handler class does not contain the required constructor.
    */
-  public BaseChannel(Class<? extends PacketHandler> clazz) {
+  public BaseChannel(@NotNull Class<? extends PacketHandler> clazz) {
     try {
       this.handler = clazz.getDeclaredConstructor(BaseChannel.class).newInstance(this);
     } catch (InstantiationException
@@ -48,7 +50,8 @@ public class BaseChannel extends SimpleChannelInboundHandler<Packet> {
    * @param msg The incoming packet to be handled.
    */
   @Override
-  protected void channelRead0(ChannelHandlerContext ctx, Packet msg) throws Exception {
+  protected void channelRead0(@NotNull ChannelHandlerContext ctx, @NotNull Packet msg)
+      throws Exception {
     this.handler.handlePacket(msg);
   }
 

@@ -1,7 +1,5 @@
 package com.stmarygate.coral.network.packets;
 
-import com.stmarygate.coral.network.PacketHandler;
-
 /** Represents a generic packet in the network communication. */
 public class Packet {
   /** The size of the packet header in bytes. */

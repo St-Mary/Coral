@@ -1,8 +1,8 @@
 package com.stmarygate.coral.network.packets.server;
 
-import com.stmarygate.coral.network.PacketHandler;
 import com.stmarygate.coral.network.packets.Packet;
 import com.stmarygate.coral.network.packets.PacketBuffer;
+import com.stmarygate.coral.network.packets.PacketHandler;
 import lombok.Getter;
 import lombok.Setter;
 

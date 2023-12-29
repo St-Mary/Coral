@@ -3,6 +3,7 @@ package com.stmarygate.coral.network;
 import com.stmarygate.coral.network.packets.Packet;
 import io.netty.channel.Channel;
 import java.util.Arrays;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a session associated with a client's communication channel. It provides methods to
@@ -28,7 +29,7 @@ public class ClientSession {
    *
    * @param packet The packet to be sent to the client.
    */
-  public void write(Packet packet) throws Exception {
+  public void write(@NotNull Packet packet) throws Exception {
     try {
       this.channel.writeAndFlush(packet);
     } catch (Exception e) {

@@ -8,6 +8,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * The {@code PacketDecoder} class is responsible for decoding raw bytes received over the network
@@ -51,7 +52,8 @@ public class PacketDecoder extends MessageToMessageDecoder<ByteBuf> {
    * @throws Exception if an error occurs during the decoding process
    */
   @Override
-  protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) throws Exception {
+  protected void decode(@NotNull ChannelHandlerContext ctx, ByteBuf msg, @NotNull List<Object> out)
+      throws Exception {
     // Duplicate and retain the incoming buffer for manipulation
     if (this.buffer == null || this.buffer.readableBytes() == 0) {
       this.buffer = msg.duplicate().retain();

@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Manages the protocol for packet communication by registering and retrieving packet classes based
@@ -42,7 +43,7 @@ public class Protocol {
    * @param packet The class of the packet to be registered.
    * @throws RuntimeException If the packet class does not contain a default constructor.
    */
-  private void register(int id, Class<? extends Packet> packet) {
+  private void register(int id, @NotNull Class<? extends Packet> packet) {
     try {
       packet.getDeclaredConstructor().newInstance();
       PACKETS_MAP.put(id, packet);
@@ -62,7 +63,7 @@ public class Protocol {
    * @return The ID associated with the packet.
    * @throws RuntimeException If the packet is not registered.
    */
-  public int getPacketId(Packet packet) {
+  public int getPacketId(@NotNull Packet packet) {
     Optional<Integer> id =
         PACKETS_MAP.entrySet().stream()
             .filter(entry -> entry.getValue().isInstance(packet))
@@ -90,7 +91,6 @@ public class Protocol {
           NoSuchMethodException,
           InvocationTargetException {
     if (!PACKETS_MAP.containsKey(id)) return null;
-      // throw new RuntimeException("Packet with id " + id + " is not registered.");
     return PACKETS_MAP.get(id).getDeclaredConstructor().newInstance();
   }
 

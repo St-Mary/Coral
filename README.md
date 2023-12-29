@@ -51,6 +51,7 @@
 
 
 <!-- ABOUT CORAL -->
+
 ## About Coral
 
 Nothing to see here
@@ -58,7 +59,7 @@ Nothing to see here
 
 ### Built With
 
-[![Java][Java]][Java-url] 
+[![Java][Java]][Java-url]
 [![Gradle][Gradle]][Gradle-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -66,6 +67,7 @@ Nothing to see here
 
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 Currently, this project is not ready for use. Please check back later.
@@ -83,6 +85,7 @@ Not ready yet
 
 
 <!-- ROADMAP -->
+
 ## Roadmap
 
 <!-- - [ ] Feature 1-->
@@ -90,18 +93,22 @@ Not ready yet
 <!-- - [ ] Feature 3-->
 <!--    - [ ] Nested Feature-->
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and
+known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
+contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
+simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
@@ -115,6 +122,7 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the Apache Licence v2.0. See `LICENSE` for more information.
@@ -122,6 +130,7 @@ Distributed under the Apache Licence v2.0. See `LICENSE` for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
+
 ## Contact
 
 Léa - [Discord](https://discord.com/users/985986599995187270) - [contact@aikoo.me](contact@aikoo.me)
@@ -131,6 +140,7 @@ Project Link: [https://github.com/St-Mary/Coral](https://github.com/St-Mary/Game
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
 * [RedBoxing](https://github.com/RedBoxing)
@@ -141,17 +151,31 @@ Project Link: [https://github.com/St-Mary/Coral](https://github.com/St-Mary/Game
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/St-Mary/Coral.svg?style=for-the-badge
+
 [contributors-url]: https://github.com/St-Mary/Coral/graphs/contributors
+
 [forks-shield]: https://img.shields.io/github/forks/St-Mary/Coral.svg?style=for-the-badge
+
 [forks-url]: https://github.com/St-Mary/Coral/network/members
+
 [stars-shield]: https://img.shields.io/github/stars/St-Mary/Coral.svg?style=for-the-badge
+
 [stars-url]: https://github.com/St-Mary/Coral/stargazers
+
 [issues-shield]: https://img.shields.io/github/issues/St-Mary/Coral.svg?style=for-the-badge
+
 [issues-url]: https://github.com/St-Mary/Coral/issues
+
 [license-shield]: https://img.shields.io/github/license/St-Mary/Coral.svg?style=for-the-badge
+
 [license-url]: https://github.com/St-Mary/Coral/blob/master/LICENSE
+
 [Java-url]: https://www.java.com/fr/
+
 [Java]: https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
+
 [Gradle]: https://img.shields.io/badge/gradle-02303A?logo=gradle&style=for-the-badge&logoWidth=25
+
 [Gradle-url]: https://gradle.org/

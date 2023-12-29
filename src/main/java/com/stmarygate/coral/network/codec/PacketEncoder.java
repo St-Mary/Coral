@@ -6,6 +6,7 @@ import com.stmarygate.coral.network.packets.Protocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * The {@code PacketEncoder} class is responsible for encoding instances of the {@link Packet} class
@@ -65,7 +66,9 @@ public class PacketEncoder extends MessageToByteEncoder<Packet> {
    * @see Packet#encode(PacketBuffer)
    */
   @Override
-  protected void encode(ChannelHandlerContext ctx, Packet msg, ByteBuf out) throws Exception {
+  protected void encode(
+      @NotNull ChannelHandlerContext ctx, @NotNull Packet msg, @NotNull ByteBuf out)
+      throws Exception {
     try {
       msg.encode(
           new PacketBuffer(

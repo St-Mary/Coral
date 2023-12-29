@@ -6,6 +6,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import lombok.AllArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Initializes a {@link SocketChannel} by configuring its {@link ChannelPipeline} with necessary
@@ -24,7 +25,7 @@ public class BaseInitializer extends ChannelInitializer<SocketChannel> {
    * @param ch The {@link SocketChannel} to be initialized.
    */
   @Override
-  protected void initChannel(SocketChannel ch) {
+  protected void initChannel(@NotNull SocketChannel ch) {
     ChannelPipeline pipeline = ch.pipeline();
 
     // Add packet decoding and encoding handlers
