@@ -2,8 +2,6 @@ package com.stmarygate.coral.network;
 
 import com.stmarygate.coral.network.codec.PacketDecoder;
 import com.stmarygate.coral.network.codec.PacketEncoder;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;

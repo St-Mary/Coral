@@ -7,47 +7,38 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Represents a version result packet in the network communication.
- * Extends the base {@link Packet} class.
+ * Represents a version result packet in the network communication. Extends the base {@link Packet}
+ * class.
  */
 @Getter
 @Setter
 public class PacketVersionResult extends Packet {
-  /**
-   * Indicates whether the version is accepted.
-   */
+  /** Indicates whether the version is accepted. */
   private boolean accepted;
 
-  /**
-   * The major version number.
-   */
+  /** The major version number. */
   private int major;
 
-  /**
-   * The minor version number.
-   */
+  /** The minor version number. */
   private int minor;
 
-  /**
-   * The patch version number.
-   */
+  /** The patch version number. */
   private int patch;
 
-  /**
-   * The build version string.
-   */
+  /** The build version string. */
   private String buildVersion;
 
   /**
    * Constructs a new {@code PacketVersionResult} with specified version information.
    *
-   * @param accepted     Whether the version is accepted.
-   * @param major        The major version number.
-   * @param minor        The minor version number.
-   * @param patch        The patch version number.
+   * @param accepted Whether the version is accepted.
+   * @param major The major version number.
+   * @param minor The minor version number.
+   * @param patch The patch version number.
    * @param buildVersion The build version string.
    */
-  public PacketVersionResult(boolean accepted, int major, int minor, int patch, String buildVersion) {
+  public PacketVersionResult(
+      boolean accepted, int major, int minor, int patch, String buildVersion) {
     this.accepted = accepted;
     this.major = major;
     this.minor = minor;
@@ -55,9 +46,7 @@ public class PacketVersionResult extends Packet {
     this.buildVersion = buildVersion;
   }
 
-  /**
-   * Constructs a default {@code PacketVersionResult} with all version information set to zero.
-   */
+  /** Constructs a default {@code PacketVersionResult} with all version information set to zero. */
   public PacketVersionResult() {
     this(false, 0, 0, 0, "");
   }
@@ -108,11 +97,16 @@ public class PacketVersionResult extends Packet {
    */
   @Override
   public String toString() {
-    return "{ accepted: " + accepted +
-            ", major: " + major +
-            ", minor: " + minor +
-            ", patch: " + patch +
-            ", build: " + buildVersion + " }";
+    return "{ accepted: "
+        + accepted
+        + ", major: "
+        + major
+        + ", minor: "
+        + minor
+        + ", patch: "
+        + patch
+        + ", build: "
+        + buildVersion
+        + " }";
   }
 }
-

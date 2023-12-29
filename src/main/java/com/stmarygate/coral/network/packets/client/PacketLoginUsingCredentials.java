@@ -16,13 +16,14 @@ public class PacketLoginUsingCredentials extends Packet {
     if (username.isEmpty() && password.isEmpty()) return;
     this.username = username;
 
-    Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(
-            16,     // saltLength
-            64,     // hashLength
-            8,      // parallelism (e.g., number of CPU cores)
-            65536,  // memory in kilobytes
-            4       // iterations
-    );
+    Argon2PasswordEncoder argon2PasswordEncoder =
+        new Argon2PasswordEncoder(
+            16, // saltLength
+            64, // hashLength
+            8, // parallelism (e.g., number of CPU cores)
+            65536, // memory in kilobytes
+            4 // iterations
+            );
 
     this.password = password;
     this.encodedPassword = argon2PasswordEncoder.encode(password);

@@ -7,38 +7,29 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Represents a version packet in the network communication.
- * Extends the base {@link Packet} class.
+ * Represents a version packet in the network communication. Extends the base {@link Packet} class.
  */
 @Getter
 @Setter
 public class PacketVersion extends Packet {
-  /**
-   * The major version number.
-   */
+  /** The major version number. */
   private int major;
 
-  /**
-   * The minor version number.
-   */
+  /** The minor version number. */
   private int minor;
 
-  /**
-   * The patch version number.
-   */
+  /** The patch version number. */
   private int patch;
 
-  /**
-   * The build version string.
-   */
+  /** The build version string. */
   private String buildVersion;
 
   /**
    * Constructs a new {@code PacketVersion} with specified version information.
    *
-   * @param major        The major version number.
-   * @param minor        The minor version number.
-   * @param patch        The patch version number.
+   * @param major The major version number.
+   * @param minor The minor version number.
+   * @param patch The patch version number.
    * @param buildVersion The build version string.
    */
   public PacketVersion(int major, int minor, int patch, String buildVersion) {
@@ -49,8 +40,8 @@ public class PacketVersion extends Packet {
   }
 
   /**
-   * Constructs a default {@code PacketVersion} with initial version information.
-   * Defaults to version 0.0.1-SNAPSHOT.
+   * Constructs a default {@code PacketVersion} with initial version information. Defaults to
+   * version 0.0.1-SNAPSHOT.
    */
   public PacketVersion() {
     this(0, 0, 1, "SNAPSHOT");
@@ -100,10 +91,14 @@ public class PacketVersion extends Packet {
    */
   @Override
   public String toString() {
-    return "{ major: " + major +
-            ", minor: " + minor +
-            ", patch: " + patch +
-            ", build: " + buildVersion + " }";
+    return "{ major: "
+        + major
+        + ", minor: "
+        + minor
+        + ", patch: "
+        + patch
+        + ", build: "
+        + buildVersion
+        + " }";
   }
 }
-

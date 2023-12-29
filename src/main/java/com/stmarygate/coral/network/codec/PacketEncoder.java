@@ -13,17 +13,17 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * integration with Netty's encoding pipeline.
  *
  * <p>This encoder works by calling the {@link Packet#encode(PacketBuffer)} method on the provided
- * {@link Packet} instance, creating a {@link PacketBuffer} to write the encoded data into the specified
- * {@link ByteBuf} (output buffer). The encoded packet is then flushed to the network channel for transmission.
+ * {@link Packet} instance, creating a {@link PacketBuffer} to write the encoded data into the
+ * specified {@link ByteBuf} (output buffer). The encoded packet is then flushed to the network
+ * channel for transmission.
  *
- * <p>The encoding process involves creating a {@link PacketBuffer} initialized with the output buffer,
- * the packet's ID, and the action type (in this case, {@link Packet.PacketAction#WRITE}). The packet's
- * encode method writes the packet's data into the buffer. The resulting byte stream is then flushed
- * to the network channel.
+ * <p>The encoding process involves creating a {@link PacketBuffer} initialized with the output
+ * buffer, the packet's ID, and the action type (in this case, {@link Packet.PacketAction#WRITE}).
+ * The packet's encode method writes the packet's data into the buffer. The resulting byte stream is
+ * then flushed to the network channel.
  *
- * <p><strong>Usage:</strong>
- * To use this encoder, add an instance of {@code PacketEncoder} to the Netty pipeline in your Netty
- * server or client bootstrap configuration.
+ * <p><strong>Usage:</strong> To use this encoder, add an instance of {@code PacketEncoder} to the
+ * Netty pipeline in your Netty server or client bootstrap configuration.
  *
  * <pre>{@code
  * ChannelPipeline pipeline = ch.pipeline();
@@ -31,10 +31,9 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * // ... add other handlers to the pipeline
  * }</pre>
  *
- * <p><strong>Example:</strong>
- * Suppose you have a custom packet class named {@code MyPacket} that extends {@link Packet}. When you send
- * an instance of {@code MyPacket} over the network, the {@code PacketEncoder} will handle the encoding
- * process automatically.
+ * <p><strong>Example:</strong> Suppose you have a custom packet class named {@code MyPacket} that
+ * extends {@link Packet}. When you send an instance of {@code MyPacket} over the network, the
+ * {@code PacketEncoder} will handle the encoding process automatically.
  *
  * <pre>{@code
  * MyPacket myPacket = new MyPacket(); // create an instance of your custom packet
@@ -49,8 +48,8 @@ import io.netty.handler.codec.MessageToByteEncoder;
 public class PacketEncoder extends MessageToByteEncoder<Packet> {
 
   /**
-   * Constructs a new {@code PacketEncoder} instance. This constructor sets the target class
-   * for encoding to {@link Packet}.
+   * Constructs a new {@code PacketEncoder} instance. This constructor sets the target class for
+   * encoding to {@link Packet}.
    */
   public PacketEncoder() {
     super(Packet.class);
@@ -68,11 +67,12 @@ public class PacketEncoder extends MessageToByteEncoder<Packet> {
   @Override
   protected void encode(ChannelHandlerContext ctx, Packet msg, ByteBuf out) throws Exception {
     try {
-      msg.encode(new PacketBuffer(out, Protocol.getInstance().getPacketId(msg), Packet.PacketAction.WRITE));
+      msg.encode(
+          new PacketBuffer(
+              out, Protocol.getInstance().getPacketId(msg), Packet.PacketAction.WRITE));
       ctx.channel().flush();
     } catch (Exception e) {
       throw new Exception(e.getMessage(), e.getCause());
     }
   }
 }
-

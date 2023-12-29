@@ -2,13 +2,9 @@ package com.stmarygate.coral.network.packets;
 
 import com.stmarygate.coral.network.PacketHandler;
 
-/**
- * Represents a generic packet in the network communication.
- */
+/** Represents a generic packet in the network communication. */
 public class Packet {
-  /**
-   * The size of the packet header in bytes.
-   */
+  /** The size of the packet header in bytes. */
   public static final int HEADER_SIZE = 4;
 
   /**
@@ -39,19 +35,12 @@ public class Packet {
     // Implementation specific to each packet type.
   }
 
-  /**
-   * Enum representing the action type of packet (READ or WRITE).
-   */
+  /** Enum representing the action type of packet (READ or WRITE). */
   public enum PacketAction {
-    /**
-     * Indicates a packet is being read.
-     */
+    /** Indicates a packet is being read. */
     READ,
 
-    /**
-     * Indicates a packet is being written.
-     */
+    /** Indicates a packet is being written. */
     WRITE
   }
 }
-

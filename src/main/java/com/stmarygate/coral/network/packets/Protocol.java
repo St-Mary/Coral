@@ -3,7 +3,6 @@ package com.stmarygate.coral.network.packets;
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
 import com.stmarygate.coral.network.packets.client.PacketVersion;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -90,8 +89,8 @@ public class Protocol {
           IllegalAccessException,
           NoSuchMethodException,
           InvocationTargetException {
-    if (!PACKETS_MAP.containsKey(id))
-      throw new RuntimeException("Packet with id " + id + " is not registered.");
+    if (!PACKETS_MAP.containsKey(id)) return null;
+      // throw new RuntimeException("Packet with id " + id + " is not registered.");
     return PACKETS_MAP.get(id).getDeclaredConstructor().newInstance();
   }
 
