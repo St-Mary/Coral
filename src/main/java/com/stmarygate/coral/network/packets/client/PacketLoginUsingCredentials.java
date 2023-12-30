@@ -4,29 +4,16 @@ import com.stmarygate.coral.network.packets.Packet;
 import com.stmarygate.coral.network.packets.PacketBuffer;
 import com.stmarygate.coral.network.packets.PacketHandler;
 import lombok.Getter;
-import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 
 @Getter
 public class PacketLoginUsingCredentials extends Packet {
   private String username;
   private String password;
-  private String encodedPassword;
 
   public PacketLoginUsingCredentials(String username, String password) {
     if (username.isEmpty() && password.isEmpty()) return;
     this.username = username;
-
-    Argon2PasswordEncoder argon2PasswordEncoder =
-        new Argon2PasswordEncoder(
-            16, // saltLength
-            64, // hashLength
-            8, // parallelism (e.g., number of CPU cores)
-            65536, // memory in kilobytes
-            4 // iterations
-            );
-
     this.password = password;
-    this.encodedPassword = argon2PasswordEncoder.encode(password);
   }
 
   public PacketLoginUsingCredentials() {

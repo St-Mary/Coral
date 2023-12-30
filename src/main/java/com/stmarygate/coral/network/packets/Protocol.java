@@ -2,6 +2,7 @@ package com.stmarygate.coral.network.packets;
 
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
 import com.stmarygate.coral.network.packets.client.PacketVersion;
+import com.stmarygate.coral.network.packets.server.PacketLoginResult;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -25,6 +26,7 @@ public class Protocol {
     register(1, PacketVersion.class);
     register(2, PacketVersionResult.class);
     register(3, PacketLoginUsingCredentials.class);
+    register(4, PacketLoginResult.class);
   }
 
   /**

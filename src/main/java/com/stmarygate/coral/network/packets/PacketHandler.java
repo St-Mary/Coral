@@ -4,6 +4,7 @@ import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.ClientSession;
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
 import com.stmarygate.coral.network.packets.client.PacketVersion;
+import com.stmarygate.coral.network.packets.server.PacketLoginResult;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -48,13 +49,12 @@ public class PacketHandler {
   }
 
   public void handlePacketVersion(@NotNull PacketVersion packet) {}
-  ;
 
   public void handlePacketVersionResult(@NotNull PacketVersionResult packet) {}
-  ;
 
   public void handlePacketLoginUsingCredentials(@NotNull PacketLoginUsingCredentials packet) {}
-  ;
+
+  public void handlePacketLoginResult(@NotNull PacketLoginResult packet) {}
 
   /**
    * Finds the handler method for the given packet class.
