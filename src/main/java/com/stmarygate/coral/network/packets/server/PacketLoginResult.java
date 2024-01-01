@@ -37,7 +37,7 @@ public class PacketLoginResult extends Packet {
   public void decode(PacketBuffer packet) throws Exception {
     this.accepted = packet.readUnsignedByte() == 1;
     this.code = packet.readUnsignedByte();
-    this.token = this.accepted ? packet.readString() : "";
+    this.token = this.accepted ? packet.readBigString() : "";
   }
 
   /**
@@ -49,7 +49,7 @@ public class PacketLoginResult extends Packet {
   public void encode(PacketBuffer packet) throws Exception {
     packet.writeByte(accepted ? 1 : 0);
     packet.writeByte(code);
-    if (accepted) packet.writeString(token);
+    if (accepted) packet.writeBigString(token);
     packet.finish();
   }
 

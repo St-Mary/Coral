@@ -8,21 +8,27 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import java.lang.reflect.InvocationTargetException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Represents a channel handler for handling incoming packets of type {@link Packet}. It uses a
  * {@link PacketHandler} to process and handle the business logic associated with received packets.
  */
 @Getter
+@Setter
 @RequiredArgsConstructor
 @ChannelHandler.Sharable
 public class BaseChannel extends SimpleChannelInboundHandler<Packet> {
-  /** The packet handler responsible for processing and handling business logic. */
-  private final PacketHandler handler;
+  private final Logger LOGGER = LoggerFactory.getLogger(BaseChannel.class);
 
   /** The client session associated with this channel. */
   protected ClientSession session;
+
+  /** The packet handler responsible for processing and handling business logic. */
+  private PacketHandler handler;
 
   /**
    * Constructs a new {@link BaseChannel} with the specified packet handler class.
@@ -40,6 +46,19 @@ public class BaseChannel extends SimpleChannelInboundHandler<Packet> {
       throw new RuntimeException(
           "PacketHandler " + clazz.getSimpleName() + " does not contain the required constructor.",
           e);
+    }
+  }
+
+  /**
+   * Send a packet to the channel associated with this channel handler.
+   *
+   * @param packet The packet to be sent.
+   */
+  public void sendPacket(@NotNull Packet packet) {
+    try {
+      this.session.write(packet);
+    } catch (Exception e) {
+      LOGGER.error("Error sending packet " + packet.getClass().getSimpleName(), e);
     }
   }
 

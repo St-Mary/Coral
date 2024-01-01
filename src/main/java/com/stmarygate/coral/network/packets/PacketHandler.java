@@ -3,6 +3,7 @@ package com.stmarygate.coral.network.packets;
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.ClientSession;
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
+import com.stmarygate.coral.network.packets.client.PacketLoginUsingJWT;
 import com.stmarygate.coral.network.packets.client.PacketVersion;
 import com.stmarygate.coral.network.packets.server.PacketLoginResult;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
@@ -29,6 +30,7 @@ public class PacketHandler {
       Method method = findHandlerMethod(packet);
       method.invoke(this, packet);
     } catch (InvocationTargetException | IllegalAccessException | NoSuchMethodException e) {
+      System.out.println(e.getClass().getSimpleName());
       throw new Exception(
           "Error handling incoming packet "
               + packet.getClass().getSimpleName()
@@ -55,6 +57,8 @@ public class PacketHandler {
   public void handlePacketLoginUsingCredentials(@NotNull PacketLoginUsingCredentials packet) {}
 
   public void handlePacketLoginResult(@NotNull PacketLoginResult packet) {}
+
+  public void handlePacketLoginUsingJWT(@NotNull PacketLoginUsingJWT packet) {}
 
   /**
    * Finds the handler method for the given packet class.

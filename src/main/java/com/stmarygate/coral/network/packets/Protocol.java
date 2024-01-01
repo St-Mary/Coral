@@ -1,6 +1,8 @@
 package com.stmarygate.coral.network.packets;
 
+import com.stmarygate.coral.network.packets.client.PacketGameTest;
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
+import com.stmarygate.coral.network.packets.client.PacketLoginUsingJWT;
 import com.stmarygate.coral.network.packets.client.PacketVersion;
 import com.stmarygate.coral.network.packets.server.PacketLoginResult;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
@@ -26,7 +28,9 @@ public class Protocol {
     register(1, PacketVersion.class);
     register(2, PacketVersionResult.class);
     register(3, PacketLoginUsingCredentials.class);
-    register(4, PacketLoginResult.class);
+    register(4, PacketLoginUsingJWT.class);
+    register(5, PacketLoginResult.class);
+    register(6, PacketGameTest.class);
   }
 
   /**
