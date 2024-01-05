@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/St-Mary/Coral">
-    <img src="images/coral_icon.png" alt="Logo" width="80" height="80">
+    <img src="images/coral_icon.png" alt="Logo" height="150">
   </a>
 
 <h3 align="center">Coral</h3>
