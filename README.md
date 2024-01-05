@@ -34,14 +34,6 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -54,47 +46,13 @@
 
 ## About Coral
 
-Nothing to see here
+Common library used in the St Mary Gate project, which provides essential functionality and utilities shared between the game client and server.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
 [![Java][Java]][Java-url]
 [![Gradle][Gradle]][Gradle-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-Currently, this project is not ready for use. Please check back later.
-
-### Prerequisites
-
-Not ready yet
-
-### Installation
-
-1. Not ready yet
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-<!-- - [ ] Feature 1-->
-<!-- - [ ] Feature 2-->
-<!-- - [ ] Feature 3-->
-<!--    - [ ] Nested Feature-->
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and
-known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
