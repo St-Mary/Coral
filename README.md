@@ -91,9 +91,11 @@ Distributed under the Apache Licence v2.0. See `LICENSE` for more information.
 
 ## Contact
 
-Léa - [Discord](https://discord.com/users/985986599995187270) - [contact@aikoo.me](contact@aikoo.me)
+Léa - [Discord](https://discord.com/users/985986599995187270) - [contact@aikoo.me](mailto:contact@aikoo.me)
 
-Project Link: [https://github.com/St-Mary/Coral](https://github.com/St-Mary/GameServer)
+Saint Mary's Gate - [contact@stmarygate.com](mailto:contact@stmarygate.com)
+
+Project Link: [https://github.com/St-Mary/Coral](https://github.com/St-Mary/Coral)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
