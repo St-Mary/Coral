@@ -22,7 +22,10 @@
   </p>
 </div>
 
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ffca45704a5b48af9e56ec0b6a6ef5f2)](https://app.codacy.com/gh/St-Mary/Coral/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![license](https://img.shields.io/github/license/st-mary/.github.svg)](https://github.com/St-Mary/.github/blob/main/LICENSE)
+![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg)
+![code with hearth by St Mary's team](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-St._Mary_Team-ff1414.svg)
 
 <!-- TABLE OF CONTENTS -->
 <details>
