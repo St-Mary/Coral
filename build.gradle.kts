@@ -46,6 +46,7 @@ dependencies {
 
     implementation("org.jetbrains:annotations:24.1.0")
 
+    // Jupiter
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
