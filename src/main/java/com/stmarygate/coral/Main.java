@@ -1,8 +1,6 @@
 package com.stmarygate.coral;
 
-/**
- * The main class of the Coral lib, only here to build the JAR file.
- */
+/** The main class of the Coral lib, only here to build the JAR file. */
 public class Main {
 
   /**
