@@ -10,6 +10,7 @@ import lombok.Getter;
  */
 @Getter
 public class PacketGameTest extends Packet {
+
   private int result;
 
   /**

@@ -10,6 +10,7 @@ import lombok.Getter;
  */
 @Getter
 public class PacketLoginUsingJWT extends Packet {
+
   private String jwt;
 
   /**

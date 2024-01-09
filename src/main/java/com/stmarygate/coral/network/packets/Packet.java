@@ -10,6 +10,7 @@ public class Packet {
    *
    * @param packet The {@link PacketBuffer} containing the packet data.
    */
+
   public void decode(PacketBuffer packet) throws Exception {
     // Implementation specific to each packet type.
   }

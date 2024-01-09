@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
  */
 @AllArgsConstructor
 public class BaseInitializer extends ChannelInitializer<SocketChannel> {
+
   /** The {@link BaseChannel} responsible for handling business logic. */
   private final BaseChannel channel;
 

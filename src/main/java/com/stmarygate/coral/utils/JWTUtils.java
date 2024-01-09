@@ -18,6 +18,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class JWTUtils {
 
   private static final JWTUtils INSTANCE = new JWTUtils();
+
   private String SECRET = "";
 
   /**

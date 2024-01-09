@@ -10,7 +10,9 @@ import lombok.Getter;
  */
 @Getter
 public class PacketLoginUsingCredentials extends Packet {
+
   private String username;
+
   private String password;
 
   /**

@@ -38,10 +38,8 @@ import org.jetbrains.annotations.NotNull;
  * to handle incoming data and release the retained ByteBuf instances appropriately.
  */
 public class PacketDecoder extends MessageToMessageDecoder<ByteBuf> {
-  private ByteBuf buffer;
 
-  /** Constructs a new {@code PacketDecoder}. */
-  public PacketDecoder() {}
+  private ByteBuf buffer;
 
   /**
    * Decodes the incoming raw bytes into instances of the {@link Packet} class.

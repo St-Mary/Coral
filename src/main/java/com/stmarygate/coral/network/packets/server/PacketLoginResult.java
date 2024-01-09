@@ -8,8 +8,11 @@ import lombok.Getter;
 /** A {@link Packet} sent by the server to the client containing the login result. */
 @Getter
 public class PacketLoginResult extends Packet {
+
   private boolean accepted;
+
   private int code;
+
   private String token;
 
   /**

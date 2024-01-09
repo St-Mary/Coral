@@ -7,17 +7,14 @@ import org.slf4j.Logger;
 
 /** A utility class containing various methods for both the client and server. */
 public class Utils {
+
   /**
    * Wait the specified amount of time.
    *
    * @param ms The amount of time to wait in milliseconds.
    */
-  public static void wait(int ms) {
-    try {
+  public static void wait(int ms) throws InterruptedException {
       Thread.sleep(ms);
-    } catch (InterruptedException e) {
-      throw new RuntimeException(e);
-    }
   }
 
   /**

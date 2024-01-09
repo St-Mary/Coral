@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 @RequiredArgsConstructor
 @ChannelHandler.Sharable
 public class BaseChannel extends SimpleChannelInboundHandler<Packet> {
+
   private final Logger LOGGER = LoggerFactory.getLogger(BaseChannel.class);
 
   /** The client session associated with this channel. */
@@ -36,16 +37,16 @@ public class BaseChannel extends SimpleChannelInboundHandler<Packet> {
    * @param clazz The class of the packet handler to be used.
    * @throws RuntimeException If the packet handler class does not contain the required constructor.
    */
-  public BaseChannel(@NotNull Class<? extends PacketHandler> clazz) {
+  public BaseChannel(@NotNull Class<? extends PacketHandler> clazz)
+      throws ExceptionInInitializerError {
     try {
       this.handler = clazz.getDeclaredConstructor(BaseChannel.class).newInstance(this);
     } catch (InstantiationException
         | IllegalAccessException
         | InvocationTargetException
         | NoSuchMethodException e) {
-      throw new RuntimeException(
-          "PacketHandler " + clazz.getSimpleName() + " does not contain the required constructor.",
-          e);
+      throw new ExceptionInInitializerError(
+          "PacketHandler " + clazz.getSimpleName() + " does not contain the required constructor.");
     }
   }
 

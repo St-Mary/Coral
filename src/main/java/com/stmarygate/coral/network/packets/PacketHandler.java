@@ -59,35 +59,45 @@ public class PacketHandler {
    *
    * @param packet The version packet.
    */
-  public void handlePacketVersion(@NotNull PacketVersion packet) {}
+  public void handlePacketVersion(@NotNull PacketVersion packet) {
+    // do something
+  }
 
   /**
    * Handles the version result packet.
    *
    * @param packet The version result packet.
    */
-  public void handlePacketVersionResult(@NotNull PacketVersionResult packet) {}
+  public void handlePacketVersionResult(@NotNull PacketVersionResult packet) {
+    // do something
+  }
 
   /**
    * Handles the login packet using credentials.
    *
    * @param packet The login packet using credentials instance.
    */
-  public void handlePacketLoginUsingCredentials(@NotNull PacketLoginUsingCredentials packet) {}
+  public void handlePacketLoginUsingCredentials(@NotNull PacketLoginUsingCredentials packet) {
+    // do something
+  }
 
   /**
    * Handles the login result packet.
    *
    * @param packet The login result packet.
    */
-  public void handlePacketLoginResult(@NotNull PacketLoginResult packet) {}
+  public void handlePacketLoginResult(@NotNull PacketLoginResult packet) {
+    // do something
+  }
 
   /**
    * Handles the login packet using JWT.
    *
    * @param packet The login packet using JWT instance.
    */
-  public void handlePacketLoginUsingJWT(@NotNull PacketLoginUsingJWT packet) {}
+  public void handlePacketLoginUsingJWT(@NotNull PacketLoginUsingJWT packet) {
+    // do something
+  }
 
   /**
    * Finds the handler method for the given packet class.

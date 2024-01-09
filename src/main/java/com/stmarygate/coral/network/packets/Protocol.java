@@ -9,28 +9,37 @@ import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.MissingResourceException;
 import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Manages the protocol for packet communication by registering and retrieving packet classes based
  * on their IDs.
  */
 public class Protocol {
+
   /** Mapping of packet IDs to their corresponding packet classes. */
   private static final HashMap<Integer, Class<? extends Packet>> PACKETS_MAP = new HashMap<>();
+  private static final Logger LOGGER = LoggerFactory.getLogger(Protocol.class);
 
   /** Singleton instance of the Protocol. */
   private static final Protocol INSTANCE = new Protocol();
 
   /** Private constructor to enforce the singleton pattern and register initial packets. */
   private Protocol() {
-    register(1, PacketVersion.class);
-    register(2, PacketVersionResult.class);
-    register(3, PacketLoginUsingCredentials.class);
-    register(4, PacketLoginUsingJWT.class);
-    register(5, PacketLoginResult.class);
-    register(6, PacketGameTest.class);
+    try {
+      register(1, PacketVersion.class);
+      register(2, PacketVersionResult.class);
+      register(3, PacketLoginUsingCredentials.class);
+      register(4, PacketLoginUsingJWT.class);
+      register(5, PacketLoginResult.class);
+      register(6, PacketGameTest.class);
+    } catch (InstantiationException e) {
+      LOGGER.error("Error while registering packet: " + e.getMessage());
+    }
   }
 
   /**
@@ -49,7 +58,8 @@ public class Protocol {
    * @param packet The class of the packet to be registered.
    * @throws RuntimeException If the packet class does not contain a default constructor.
    */
-  private void register(int id, @NotNull Class<? extends Packet> packet) {
+  private void register(int id, @NotNull Class<? extends Packet> packet)
+      throws InstantiationException {
     try {
       packet.getDeclaredConstructor().newInstance();
       PACKETS_MAP.put(id, packet);
@@ -57,8 +67,8 @@ public class Protocol {
         | InstantiationException
         | IllegalAccessException
         | NoSuchMethodException e) {
-      throw new RuntimeException(
-          "Class " + packet.getSimpleName() + " does not contain a default Constructor!", e);
+      throw new InstantiationException(
+          "Class " + packet.getSimpleName() + " does not contain a default Constructor!");
     }
   }
 
@@ -76,7 +86,8 @@ public class Protocol {
             .map(Map.Entry::getKey)
             .findFirst();
     if (id.isPresent()) return id.get();
-    throw new RuntimeException("Packet " + packet + " is not registered.");
+    throw new MissingResourceException("Packet is not registered.", packet.getClass().getName(),
+            packet.toString());
   }
 
   /**

@@ -13,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PacketVersionResult extends Packet {
+
   /** Indicates whether the version is accepted. */
   private boolean accepted;
 

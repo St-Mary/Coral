@@ -2,6 +2,8 @@ package com.stmarygate.coral.network;
 
 import com.stmarygate.coral.network.packets.Packet;
 import io.netty.channel.Channel;
+
+import java.io.WriteAbortedException;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 
@@ -11,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
  * client.
  */
 public class ClientSession {
+
   /** The communication channel associated with the client session. */
   private final Channel channel;
 
@@ -29,11 +32,11 @@ public class ClientSession {
    *
    * @param packet The packet to be sent to the client.
    */
-  public void write(@NotNull Packet packet) throws Exception {
+  public void write(@NotNull Packet packet) throws WriteAbortedException {
     try {
       this.channel.writeAndFlush(packet);
     } catch (Exception e) {
-      throw new Exception(
+      throw new WriteAbortedException(
           "Error writing packet "
               + packet.getClass().getSimpleName()
               + " to client "
@@ -41,7 +44,7 @@ public class ClientSession {
               + "\nError:\n"
               + e.getMessage()
               + "\n"
-              + Arrays.toString(e.getStackTrace()));
+              + Arrays.toString(e.getStackTrace()), e);
     }
   }
 
