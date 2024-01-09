@@ -5,9 +5,7 @@ import com.stmarygate.coral.network.packets.PacketBuffer;
 import com.stmarygate.coral.network.packets.PacketHandler;
 import lombok.Getter;
 
-/**
- * A {@link Packet} sent by the client to the server containing the JWT token for the user.
- */
+/** A {@link Packet} sent by the client to the server containing the JWT token for the user. */
 @Getter
 public class PacketLoginUsingJWT extends Packet {
 

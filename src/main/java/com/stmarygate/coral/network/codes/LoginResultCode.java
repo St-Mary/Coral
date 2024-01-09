@@ -2,9 +2,7 @@ package com.stmarygate.coral.network.codes;
 
 import lombok.Getter;
 
-/**
- * Login results codes sent by the server to the client.
- */
+/** Login results codes sent by the server to the client. */
 @Getter
 public enum LoginResultCode {
 

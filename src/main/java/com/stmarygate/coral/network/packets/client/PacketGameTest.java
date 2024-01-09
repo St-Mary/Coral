@@ -5,9 +5,7 @@ import com.stmarygate.coral.network.packets.PacketBuffer;
 import com.stmarygate.coral.network.packets.PacketHandler;
 import lombok.Getter;
 
-/**
- * A {@link Packet} sent by the client to the server containing the result of the game test.
- */
+/** A {@link Packet} sent by the client to the server containing the result of the game test. */
 @Getter
 public class PacketGameTest extends Packet {
 
