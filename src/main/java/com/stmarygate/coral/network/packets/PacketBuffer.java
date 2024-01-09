@@ -3,6 +3,8 @@ package com.stmarygate.coral.network.packets;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -248,7 +250,7 @@ public class PacketBuffer {
    */
   public PacketBuffer writeString(String s) {
     data.writeByte(s.length());
-    data.writeBytes(s.getBytes());
+    data.writeBytes(s.getBytes(StandardCharsets.UTF_8));
     return this;
   }
 
@@ -260,7 +262,7 @@ public class PacketBuffer {
   public String readString() {
     byte[] str = new byte[data.readByte()];
     data.readBytes(str);
-    return new String(str);
+    return new String(str, StandardCharsets.UTF_8);
   }
 
   /**
@@ -271,7 +273,7 @@ public class PacketBuffer {
    */
   public PacketBuffer writeBigString(String s) {
     data.writeShort(s.length());
-    data.writeBytes(s.getBytes());
+    data.writeBytes(s.getBytes(StandardCharsets.UTF_8));
     return this;
   }
 
@@ -284,7 +286,7 @@ public class PacketBuffer {
     int len = data.readUnsignedShort();
     byte[] str = new byte[len];
     data.readBytes(str);
-    return new String(str);
+    return new String(str, StandardCharsets.UTF_8);
   }
 
   /**
@@ -295,7 +297,7 @@ public class PacketBuffer {
    */
   public PacketBuffer writeLargeString(String s) {
     data.writeInt(s.length());
-    data.writeBytes(s.getBytes());
+    data.writeBytes(s.getBytes(StandardCharsets.UTF_8));
     return this;
   }
 
@@ -308,7 +310,7 @@ public class PacketBuffer {
     int len = data.readInt();
     byte[] str = new byte[len];
     data.readBytes(str);
-    return new String(str);
+    return new String(str, StandardCharsets.UTF_8);
   }
 
   /**

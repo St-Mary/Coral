@@ -14,6 +14,10 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Represents a packet handler for handling incoming packets of type {@link Packet}. It uses a
+ * {@link PacketHandler} to process and handle the business logic associated with received packets.
+ */
 @Getter
 @RequiredArgsConstructor
 public class PacketHandler {
@@ -50,14 +54,39 @@ public class PacketHandler {
     return this.channel.getSession();
   }
 
+  /**
+   * Handles the version packet.
+   *
+   * @param packet The version packet.
+   */
   public void handlePacketVersion(@NotNull PacketVersion packet) {}
 
+  /**
+   * Handles the version result packet.
+   *
+   * @param packet The version result packet.
+   */
   public void handlePacketVersionResult(@NotNull PacketVersionResult packet) {}
 
+  /**
+   * Handles the login packet using credentials.
+   *
+   * @param packet The login packet using credentials instance.
+   */
   public void handlePacketLoginUsingCredentials(@NotNull PacketLoginUsingCredentials packet) {}
 
+  /**
+   * Handles the login result packet.
+   *
+   * @param packet The login result packet.
+   */
   public void handlePacketLoginResult(@NotNull PacketLoginResult packet) {}
 
+  /**
+   * Handles the login packet using JWT.
+   *
+   * @param packet The login packet using JWT instance.
+   */
   public void handlePacketLoginUsingJWT(@NotNull PacketLoginUsingJWT packet) {}
 
   /**
