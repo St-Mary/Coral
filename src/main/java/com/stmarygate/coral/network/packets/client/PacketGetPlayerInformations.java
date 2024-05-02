@@ -10,12 +10,8 @@ import lombok.Setter;
 @Setter
 public class PacketGetPlayerInformations extends Packet {
 
-  /**
-   * Constructs a new {@code PacketGetPlayerInformations}.
-   */
-  public PacketGetPlayerInformations() {
-
-  }
+  /** Constructs a new {@code PacketGetPlayerInformations}. */
+  public PacketGetPlayerInformations() {}
 
   /**
    * Encodes the packet data into the provided {@link PacketBuffer}.
@@ -23,8 +19,7 @@ public class PacketGetPlayerInformations extends Packet {
    * @param packet The {@link PacketBuffer} to which the packet data will be written.
    */
   @Override
-  public void encode(PacketBuffer packet) throws Exception {
-  }
+  public void encode(PacketBuffer packet) throws Exception {}
 
   /**
    * Handles the packet using the specified {@link PacketHandler}.
