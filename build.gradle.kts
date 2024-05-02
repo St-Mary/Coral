@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.stmarygate"
-version = "1.0.16"
+version = "1.0.17"
 
 repositories {
     mavenCentral()
@@ -45,6 +45,14 @@ dependencies {
     implementation("io.jsonwebtoken:jjwt:0.12.3")
 
     implementation("org.jetbrains:annotations:24.1.0")
+
+    // Database
+    implementation("org.postgresql:postgresql:42.7.0")
+    implementation("com.zaxxer:HikariCP:5.0.1")
+    implementation("org.hibernate.orm:hibernate-core:6.4.1.Final")
+    implementation("org.hibernate.orm:hibernate-hikaricp:6.4.1.Final")
+    implementation("io.hypersistence:hypersistence-utils-hibernate-63:3.7.3")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
 
     // Jupiter
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
