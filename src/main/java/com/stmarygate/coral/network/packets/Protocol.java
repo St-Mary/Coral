@@ -21,6 +21,7 @@ public class Protocol {
 
   /** Mapping of packet IDs to their corresponding packet classes. */
   private static final HashMap<Integer, Class<? extends Packet>> PACKETS_MAP = new HashMap<>();
+
   private static final Logger LOGGER = LoggerFactory.getLogger(Protocol.class);
 
   /** Singleton instance of the Protocol. */
@@ -86,8 +87,8 @@ public class Protocol {
             .map(Map.Entry::getKey)
             .findFirst();
     if (id.isPresent()) return id.get();
-    throw new MissingResourceException("Packet is not registered.", packet.getClass().getName(),
-            packet.toString());
+    throw new MissingResourceException(
+        "Packet is not registered.", packet.getClass().getName(), packet.toString());
   }
 
   /**

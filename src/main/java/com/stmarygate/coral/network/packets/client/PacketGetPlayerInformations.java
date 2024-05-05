@@ -1,6 +1,5 @@
 package com.stmarygate.coral.network.packets.client;
 
-import com.stmarygate.coral.entities.Account;
 import com.stmarygate.coral.network.packets.Packet;
 import com.stmarygate.coral.network.packets.PacketBuffer;
 import com.stmarygate.coral.network.packets.PacketHandler;
@@ -11,10 +10,9 @@ import lombok.Setter;
 @Setter
 public class PacketGetPlayerInformations extends Packet {
 
-  /**
-   * Constructs a new {@code PacketGetPlayerInformations}.
-   */
+  /** Constructs a new {@code PacketGetPlayerInformations}. */
   private Long id;
+
   public PacketGetPlayerInformations(Long id) {
     this.id = id;
   }
@@ -30,8 +28,8 @@ public class PacketGetPlayerInformations extends Packet {
    */
   @Override
   public void encode(PacketBuffer packet) throws Exception {
-      packet.writeLong(this.id);
-      packet.finish();
+    packet.writeLong(this.id);
+    packet.finish();
   }
 
   /**

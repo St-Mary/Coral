@@ -88,7 +88,18 @@ public class PacketLoginResult extends Packet {
    */
   @Override
   public String toString() {
-    return "{ accepted: " + accepted + ", code: " + code + ", token: " + token + "username: " + account.getUsername() + ", email: " + account.getEmail() + ", jwt: " + account.getJwt() +
-            " }";
+    return "{ accepted: "
+        + accepted
+        + ", code: "
+        + code
+        + ", token: "
+        + token
+        + "username: "
+        + account.getUsername()
+        + ", email: "
+        + account.getEmail()
+        + ", jwt: "
+        + account.getJwt()
+        + " }";
   }
 }

@@ -106,7 +106,8 @@ public class PacketHandler {
     // do something
   }
 
-  public void handlePacketGetPlayerInformationsResult(@NotNull PacketGetPlayerInformationsResult packet) {
+  public void handlePacketGetPlayerInformationsResult(
+      @NotNull PacketGetPlayerInformationsResult packet) {
     // do something
   }
 
