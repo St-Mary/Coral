@@ -1,5 +1,6 @@
 package com.stmarygate.coral.network.packets.client;
 
+import com.stmarygate.coral.entities.Account;
 import com.stmarygate.coral.network.packets.Packet;
 import com.stmarygate.coral.network.packets.PacketBuffer;
 import com.stmarygate.coral.network.packets.PacketHandler;
@@ -13,8 +14,13 @@ public class PacketGetPlayerInformations extends Packet {
   /**
    * Constructs a new {@code PacketGetPlayerInformations}.
    */
-  public PacketGetPlayerInformations() {
+  private Long id;
+  public PacketGetPlayerInformations(Long id) {
+    this.id = id;
+  }
 
+  public PacketGetPlayerInformations() {
+    this(0L);
   }
 
   /**
@@ -24,6 +30,18 @@ public class PacketGetPlayerInformations extends Packet {
    */
   @Override
   public void encode(PacketBuffer packet) throws Exception {
+      packet.writeLong(this.id);
+      packet.finish();
+  }
+
+  /**
+   * Decodes the packet data from the provided {@link PacketBuffer}.
+   *
+   * @param packet The {@link PacketBuffer} containing the packet data.
+   */
+  @Override
+  public void decode(PacketBuffer packet) throws Exception {
+    this.id = packet.readLong();
   }
 
   /**
@@ -33,7 +51,11 @@ public class PacketGetPlayerInformations extends Packet {
    */
   @Override
   public void handle(PacketHandler handler) throws Exception {
-    handler.handlePacket(this);
+    try {
+      handler.handlePacket(this);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   /**
@@ -43,6 +65,6 @@ public class PacketGetPlayerInformations extends Packet {
    */
   @Override
   public String toString() {
-    return "";
+    return "{ id: " + id + " }";
   }
 }

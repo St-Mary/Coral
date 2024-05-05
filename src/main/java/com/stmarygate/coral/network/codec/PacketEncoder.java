@@ -69,13 +69,9 @@ public class PacketEncoder extends MessageToByteEncoder<Packet> {
   protected void encode(
       @NotNull ChannelHandlerContext ctx, @NotNull Packet msg, @NotNull ByteBuf out)
       throws Exception {
-    try {
       msg.encode(
           new PacketBuffer(
               out, Protocol.getInstance().getPacketId(msg), Packet.PacketAction.WRITE));
       ctx.channel().flush();
-    } catch (Exception e) {
-      throw new Exception(e.getMessage(), e.getCause());
-    }
   }
 }

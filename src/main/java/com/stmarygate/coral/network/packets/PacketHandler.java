@@ -2,9 +2,8 @@ package com.stmarygate.coral.network.packets;
 
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.ClientSession;
-import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
-import com.stmarygate.coral.network.packets.client.PacketLoginUsingJWT;
-import com.stmarygate.coral.network.packets.client.PacketVersion;
+import com.stmarygate.coral.network.packets.client.*;
+import com.stmarygate.coral.network.packets.server.PacketGetPlayerInformationsResult;
 import com.stmarygate.coral.network.packets.server.PacketLoginResult;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import java.lang.reflect.InvocationTargetException;
@@ -96,6 +95,18 @@ public class PacketHandler {
    * @param packet The login packet using JWT instance.
    */
   public void handlePacketLoginUsingJWT(@NotNull PacketLoginUsingJWT packet) {
+    // do something
+  }
+
+  public void handlePacketGameTest(@NotNull PacketGameTest packet) {
+    // do something
+  }
+
+  public void handlePacketGetPlayerInformations(@NotNull PacketGetPlayerInformations packet) {
+    // do something
+  }
+
+  public void handlePacketGetPlayerInformationsResult(@NotNull PacketGetPlayerInformationsResult packet) {
     // do something
   }
 

@@ -1,9 +1,7 @@
 package com.stmarygate.coral.network.packets;
 
-import com.stmarygate.coral.network.packets.client.PacketGameTest;
-import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
-import com.stmarygate.coral.network.packets.client.PacketLoginUsingJWT;
-import com.stmarygate.coral.network.packets.client.PacketVersion;
+import com.stmarygate.coral.network.packets.client.*;
+import com.stmarygate.coral.network.packets.server.PacketGetPlayerInformationsResult;
 import com.stmarygate.coral.network.packets.server.PacketLoginResult;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import java.lang.reflect.InvocationTargetException;
@@ -37,6 +35,8 @@ public class Protocol {
       register(4, PacketLoginUsingJWT.class);
       register(5, PacketLoginResult.class);
       register(6, PacketGameTest.class);
+      register(7, PacketGetPlayerInformations.class);
+      register(8, PacketGetPlayerInformationsResult.class);
     } catch (InstantiationException e) {
       LOGGER.error("Error while registering packet: " + e.getMessage());
     }

@@ -26,7 +26,7 @@ public class Account {
   @Column(nullable = true)
   private String jwt;
 
-  @OneToOne()
-  @JoinColumn(name = "player_id")
+  @OneToOne
+  @JoinColumn(name = "player")
   private Player player;
 }
