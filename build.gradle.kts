@@ -37,8 +37,8 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.14")
 
     // BCrypt
-    implementation("org.springframework.security:spring-security-core:6.2.1")
-    implementation("org.springframework.security:spring-security-crypto:6.2.1")
+    implementation("org.springframework.security:spring-security-core:6.2.4")
+    implementation("org.springframework.security:spring-security-crypto:6.2.4")
     implementation("org.bouncycastle:bcprov-jdk18on:1.77")
 
     // JWT
@@ -47,7 +47,7 @@ dependencies {
     implementation("org.jetbrains:annotations:24.1.0")
 
     // Database
-    implementation("org.postgresql:postgresql:42.7.0")
+    implementation("org.postgresql:postgresql:42.7.3")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.hibernate.orm:hibernate-core:6.4.1.Final")
     implementation("org.hibernate.orm:hibernate-hikaricp:6.4.1.Final")

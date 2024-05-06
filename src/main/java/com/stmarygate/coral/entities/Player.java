@@ -21,6 +21,10 @@ public class Player {
   @Column(name = "experience_points", nullable = false)
   private Long exp;
 
+  @Column(name = "exp_points_to_next_lvl", nullable = false, columnDefinition = "BIGINT DEFAULT " +
+          "200")
+  private Long expToNextLevel;
+
   @Column(name = "player_level", nullable = false)
   private int level;
 
