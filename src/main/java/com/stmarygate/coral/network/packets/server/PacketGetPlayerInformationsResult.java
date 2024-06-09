@@ -40,6 +40,7 @@ public class PacketGetPlayerInformationsResult extends Packet {
       packet.writeInt(this.player.getHealth());
       packet.writeInt(this.player.getMaxHealth());
       packet.writeLong(this.player.getStamina());
+      packet.writeLong(this.player.getExpToNextLevel());
       packet.finish();
     }
 
@@ -58,6 +59,7 @@ public class PacketGetPlayerInformationsResult extends Packet {
       this.player.setHealth(packet.readInt());
       this.player.setMaxHealth(packet.readInt());
       this.player.setStamina(packet.readLong());
+      this.player.setExpToNextLevel(packet.readLong());
     }
 
     @Override
@@ -67,6 +69,19 @@ public class PacketGetPlayerInformationsResult extends Packet {
 
     @Override
     public String toString() {
-      return "{ player: " + player + " }";
+      return "{ username: " + player.getUsername() +
+              ", id: " + player.getId() +
+              ", exp: " + player.getExp() +
+              ", level: " + player.getLevel() +
+              ", mana: " + player.getMana() +
+              ", aura: " + player.getAura() +
+              ", strength: " + player.getStrength() +
+              ", defense: " + player.getDefense() +
+              ", speed: " + player.getSpeed() +
+              ", health: " + player.getHealth() +
+              ", maxHealth: " + player.getMaxHealth() +
+              ", stamina: " + player.getStamina() +
+              ", expToNextLevel: " + player.getExpToNextLevel() +
+              " }";
     }
 }
